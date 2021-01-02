@@ -1,4 +1,5 @@
 const express = require('express'),
+      ctrl = require('./controller')
       port = 3201,
       app = express();
 
