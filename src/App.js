@@ -1,21 +1,19 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Header from './Components/Header';
-// import Outfit from '/Components/Cart';
+import Cart from '/Components/Cart';
+import Outfit from '/Components/Outfit';
 import './App.css';
+import { removeFromCart } from '../server/Controller';
 
 
 class App extends Component() {
-  constructor(){
+  constructor(rops){
     super()
     this.state = {
-    clothes: {
-      tops: [],
-      bottoms: [],
-      shoes: [],
-      hats: []
-    }
+    clothesInCart: []
   }
+  this.clothesInCart = this.clothesInCart.bind(this);
 } 
 componentDidMount(){
   this.getClothes()
@@ -28,14 +26,14 @@ handleInputs = (e) => {
 getClothes = () => {
   axios.get('/api/clothes')
   .then(res => {
-    this.setState({clothes: res.data})
+    this.setState({clothesInCart: res.data})
   })
   .catch(err => console.log(err));
 }
 addClothes =() =>
   axios.post('/api/clothes')
   .then(res => {
-    this.setState({clothes: res.data, 
+    this.setState({clothesInCart: res.data, 
       tops: [],
       bottoms: [],
       shoes: [],
@@ -43,15 +41,27 @@ addClothes =() =>
     })
     .catch(err => console.log(err))
   }
-
+  editSize= (id, newSize) => {
+    let body = {size: newSize};
+    axios.put(`/api/clothes/${id}`, body)
+    .then(res => {
+      this.setState({clothesInCart: res.data})
+    })
+    .catch(err => console.log(err))
+  }
+  removeFromCart= (id) => {
+    axios.delete(`/api/clothes/${id}`)
+    .then(res => {
+      this.setState({clothesInCart: res.data})
+    })
+    .catch(err => console.log(err))
+  }
   render(){
   return (
     <div className="App">
-      <header className = 'App-header'>
-        <h1>Accessorize Yourself!</h1>
-      </header>
       <Header/>
-      {/* <Outfit/> */}
+      <Outfit/>
+      <Cart/>
     </div>
    );
   }

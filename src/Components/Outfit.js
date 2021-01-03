@@ -9,7 +9,7 @@ const Outfit = props => {
 
     return (
         <div>
-            <h1>Pokedex</h1>
+            <h1>Cart</h1>
             <div className=''>
                 {mappedClothes}
             </div>
