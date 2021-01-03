@@ -5,7 +5,7 @@ const clothes = {
         {id: 1, tops: 'blouse', size: 'S'},
         {id: 2, tops: 'button-up', size: 'S'}, 
         {id: 3, tops: 't-shirt', size: 'S'}, 
-        {id: 4, tops: 'tank-top', size: 'S'}, 
+        {id: 4, tops: 'tank top', size: 'S'}, 
         {id: 5, tops: 'sweater', size: 'S'},
         {id: 6, tops: 'turtleneck', size: 'S'}],
     bottoms = [
@@ -16,9 +16,9 @@ const clothes = {
         {id: 5, bottoms: 'skorts', size: 'S'},
         {id: 6, bottoms: 'capris', size: 'S'}],
     shoes = [
-        {id: 1, shoes: 'tennis-shoes', size: 6},
+        {id: 1, shoes: 'tennis shoes', size: 6},
         {id: 2, shoes: 'high heels', size: 6},
-        {id: 3, shoes: 'flip-flops', size: 6},
+        {id: 3, shoes: 'flip flops', size: 6},
         {id: 4, shoes: 'boots', size: 6},
         {id: 5, shoes: 'flats', size: 6},
         {id: 6, shoes: 'wedges', size: 6}],
@@ -45,8 +45,8 @@ module.exports = {
     },
     editSize: (req,res) => {
         const {id} = req.params,
-        const clothes = clothes.find(element => element.id === +id);
-        clothes.size = size;
+        const clothesIndex = clothes.findIndex(element => element.id === +id);
+        clothes = clothesIndex.size = size;
         res.status(200).send(clothes);
     },
     removeFromCart: (req,res) => {
