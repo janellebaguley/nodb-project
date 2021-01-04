@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import './Header.css'
 
 const Header = () => {
     return (
-        <div>
+        <div className = 'Header'>
             <h1>Accessorize Yourself!</h1>
         </div>
     )
