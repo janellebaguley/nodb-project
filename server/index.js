@@ -1,7 +1,7 @@
-const express = require('express'),
-      ctrl = require('./controller')
-      port = 3201,
-      app = express();
+const express = require('express');
+const ctrl = require('./controller');
+const port = 3201;
+const app = express();
 
 app.use(express.json());
 
