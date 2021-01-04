@@ -1,36 +1,21 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import Outfit from './Outfit';
 
 class Cart extends Component() {
     constructor(props){
       super(props)
       this.state ={
-        tops: this.props.clothes.tops,
-        bottoms: this.props.clothes.bottoms,
-        shoes: this.props.clothes.shoes,
-        hats: this.props.clothes.hats,
         size: this.props.clothes.size
       }
   }
-  handleInputs = (e) => {
+handleInputs = (e) => {
     this.setState({
         [e.target.name]: e.target.value
     })
 }
-updateSize = () => {
-  axios.put(`/api/clothes/${this.props.clothes.id}`, {tops: this.state.tops, bottoms: this.state.bottoms, shoes: this.state.shoes, hats: this.state.hates, size: this.state.size})
-  .then(() => {this.props.editSizeFn()
-  this.setState({
-      size: []
-  })
-})
-removeFromCart = () => {
-  axios.delete(`/api/clothes/${this.props.clothes.id}`)
-  .then(() => this.props.removeFromCartFn())
-  .catch(err => console.log(err));
-}
+
     render(){
-      const {size, tops, bottoms, shoes, hats} = this.state;
+      const {size} = this.state;
       const {clothes} = this.props;
     return (
       <div>

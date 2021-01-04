@@ -1,3 +1,7 @@
+import React from 'react';
+import axios from 'axios';
+import Cart from './Cart';
+
 const Outfit = props => {
     const mappedClothes = props.clothesInCart.map((cart, i) => (
         <Cart 
@@ -10,9 +14,9 @@ const Outfit = props => {
     return (
         <div>
             <h1>Cart</h1>
-            <div className=''>
+            <section>
                 {mappedClothes}
-            </div>
+            </section>
         </div>
     )
 }
