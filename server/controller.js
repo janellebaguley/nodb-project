@@ -8,45 +8,40 @@ const clothes = [
         {id: 5, tops: 'sweater', size: 'S'},
         {id: 6, tops: 'turtleneck', size: 'S'}],
     bottoms: [
-        {id: 1, bottoms: 'jeans', size: 'S'},
-        {id: 2, bottoms: 'shorts', size: 'S'},
-        {id: 3, bottoms: 'leggings', size: 'S'},
-        {id: 4, bottoms: 'skirt', size: 'S'},
-        {id: 5, bottoms: 'skorts', size: 'S'},
-        {id: 6, bottoms: 'capris', size: 'S'}],
+        {id: 7, bottoms: 'jeans', size: 'S'},
+        {id: 8, bottoms: 'shorts', size: 'S'},
+        {id: 9, bottoms: 'leggings', size: 'S'},
+        {id: 10, bottoms: 'skirt', size: 'S'},
+        {id: 11, bottoms: 'skorts', size: 'S'},
+        {id: 12, bottoms: 'capris', size: 'S'}],
     shoes: [
-        {id: 1, shoes: 'tennis shoes', size: 6},
-        {id: 2, shoes: 'high heels', size: 6},
-        {id: 3, shoes: 'flip flops', size: 6},
-        {id: 4, shoes: 'boots', size: 6},
-        {id: 5, shoes: 'flats', size: 6},
-        {id: 6, shoes: 'wedges', size: 6}],
+        {id: 13, shoes: 'tennis shoes', size: 6},
+        {id: 14, shoes: 'high heels', size: 6},
+        {id: 15, shoes: 'flip flops', size: 6},
+        {id: 16, shoes: 'boots', size: 6},
+        {id: 17, shoes: 'flats', size: 6},
+        {id: 18, shoes: 'wedges', size: 6}],
     hats: [
-        {id: 1, hats: 'baseball cap', size: 'S'},
-        {id: 2, hats: 'fedora', size: 'S'},
-        {id: 3, hats: 'cowboy hat', size: 'S'},
-        {id: 4, hats: 'newsboy cap', size: 'S'},
-        {id: 5, hats: 'beanie', size: 'S'},
-        {id: 6, hats: 'bucket hat', size: 'S'}]
+        {id: 19, hats: 'baseball cap', size: 'S'},
+        {id: 20, hats: 'fedora', size: 'S'},
+        {id: 21, hats: 'cowboy hat', size: 'S'},
+        {id: 22, hats: 'newsboy cap', size: 'S'},
+        {id: 23, hats: 'beanie', size: 'S'},
+        {id: 24, hats: 'bucket hat', size: 'S'}]
     }];
-let id = 1;
+let cart = [];
 
 module.exports = {
     getClothes: (req,res) => {
         res.status(200).send(clothes);
     },
-    addClothes: (req,res) => {
-        const {tops, bottoms, shoes, hats} = req.body;
-        let clothing ={
-            id: id,
-            tops: tops,
-            bottoms: bottoms,
-            shoes: shoes,
-            hats: hats
-        }
-        clothes.push(clothing);
-        id++;
-        res.status(200).send(clothes);
+    getCart: (req,res) => {
+        res.status(200).send(cart);
+    },
+    addToCart: (req,res) => {
+        const {item} = req.body;
+        cart.push(item)
+        res.status(200).send(cart);
     },
     editSize: (req,res) => {
         const {id} = req.params;

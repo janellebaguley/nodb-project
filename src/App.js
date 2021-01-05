@@ -8,15 +8,21 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-    clothes: []
+    clothes: [],
+    cart: []
   }
-  this.addClothes = this.addClothes.bind(this);
+  this.addToCart = this.addToCart.bind(this);
   this.getClothes = this.getClothes.bind(this);
 } 
 componentDidMount(){
   axios.get('/api/clothes')
   .then(res => {
     this.setState({clothes: res.data})
+  })
+  .catch(err => console.log(err))
+  axios.get('/api/cart')
+  .then(res => {
+    this.setState({cart: res.data})
   })
   .catch(err => console.log(err))
 }
@@ -29,17 +35,7 @@ getClothes = () => {
   .catch(err => console.log(err))
 }
 
-addClothes =() => {
-  axios.post('/api/clothes', {tops: this.state.tops, bottoms: this.state.bottoms, shoes: this.state.shoes, hats: this.state.hats})
-  .then(res => {
-    this.setState({clothes: res.data, 
-      tops: [],
-      bottoms: [],
-      shoes: [],
-      hats: []})
-    })   
-    .catch(err => console.log(err))
-}
+
 editSize= (id, newSize) => {
   let body = {size: newSize};
   axios.put(`/api/clothes/${id}`, body)
@@ -49,15 +45,26 @@ editSize= (id, newSize) => {
   .catch(err => console.log(err))
 };
 removeFromCart= (id) => {
-    axios.delete(`/api/clothes/${id}`)
-    .then(res => {
-      this.setState({clothesInCart: res.data})
-    })
-    .catch(err => console.log(err))
-  };
+  axios.delete(`/api/clothes/${id}`)
+  .then(res => {
+    this.setState({clothesInCart: res.data})
+  })
+  .catch(err => console.log(err))
+};
 
+addToCart = (cart) => {
+  axios.post('/api/cart', {item: cart})
+  .then(res => {
+    this.setState({cart: res.data})
+  })
+  .catch(err => console.log(err))
+  // let cartC = [...this.state.cart];
+  // cartC.push(cart)
+
+  // this.setState({cart: cartC})
+}
   render(){
-    console.log(this.state.clothes)
+    console.log(this.state.cart)
   return (
     <div className="App">
       <Header/>
@@ -66,6 +73,7 @@ removeFromCart= (id) => {
         <section key ={i} className = 'box'>
           <p>{top.tops}</p>
           <p>{top.size}</p>
+          <button onClick = {() => this.addToCart(top)}>addToCart</button>
         </section>
        ))}
        </div>
@@ -74,6 +82,7 @@ removeFromCart= (id) => {
         <section key ={i} className = 'box'>
           <p>{bottom.bottoms}</p>
           <p>{bottom.size}</p>
+          <button onClick = {() => this.addToCart(bottom)}>addToCart</button>
         </section>
        ))}
        </div>
@@ -82,6 +91,7 @@ removeFromCart= (id) => {
         <section key ={i} className = 'box'>
           <p>{shoe.shoes}</p>
           <p>{shoe.size}</p>
+          <button onClick = {() => this.addToCart(shoe)}>addToCart</button>
         </section>
        ))}
        </div>
@@ -90,14 +100,17 @@ removeFromCart= (id) => {
         <section key ={i} className = 'box'>
           <p>{hat.hats}</p>
           <p>{hat.size}</p>
+          <button onClick = {() => this.addToCart(hat)}>addToCart</button>
         </section>
        ))}
        </div>
       <h2>Cart</h2>
       <Cart
       clothes={this.state.clothes}
-      editSizeFn = {this.editSize}
-      removeFn = {this.removeFromCart}/>
+      cart={this.state.cart}
+      addToCart ={this.addToCart}
+      removeFn = {this.removeFromCart}
+      editSizeFn = {this.editSize}/>
     </div>
    );
   }
