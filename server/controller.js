@@ -1,33 +1,33 @@
 const clothes = [
     {
         tops: [
-        {id: 1, tops: 'blouse', size: 'S'},
-        {id: 2, tops: 'button-up', size: 'S'}, 
-        {id: 3, tops: 't-shirt', size: 'S'}, 
-        {id: 4, tops: 'tank top', size: 'S'}, 
-        {id: 5, tops: 'sweater', size: 'S'},
-        {id: 6, tops: 'turtleneck', size: 'S'}],
+        {id: 1, tops: 'Blouse', size: 'S'},
+        {id: 2, tops: 'Button-up', size: 'S'}, 
+        {id: 3, tops: 'T-shirt', size: 'S'}, 
+        {id: 4, tops: 'Tank Top', size: 'S'}, 
+        {id: 5, tops: 'Sweater', size: 'S'},
+        {id: 6, tops: 'Turtleneck', size: 'S'}],
     bottoms: [
-        {id: 7, bottoms: 'jeans', size: 'S'},
-        {id: 8, bottoms: 'shorts', size: 'S'},
-        {id: 9, bottoms: 'leggings', size: 'S'},
-        {id: 10, bottoms: 'skirt', size: 'S'},
-        {id: 11, bottoms: 'skorts', size: 'S'},
-        {id: 12, bottoms: 'capris', size: 'S'}],
+        {id: 7, bottoms: 'Jeans', size: 'S'},
+        {id: 8, bottoms: 'Shorts', size: 'S'},
+        {id: 9, bottoms: 'Leggings', size: 'S'},
+        {id: 10, bottoms: 'Skirt', size: 'S'},
+        {id: 11, bottoms: 'Skorts', size: 'S'},
+        {id: 12, bottoms: 'Capris', size: 'S'}],
     shoes: [
-        {id: 13, shoes: 'tennis shoes', size: 6},
-        {id: 14, shoes: 'high heels', size: 6},
-        {id: 15, shoes: 'flip flops', size: 6},
-        {id: 16, shoes: 'boots', size: 6},
-        {id: 17, shoes: 'flats', size: 6},
-        {id: 18, shoes: 'wedges', size: 6}],
+        {id: 13, shoes: 'Tennis Shoes', size: 6},
+        {id: 14, shoes: 'High Heels', size: 6},
+        {id: 15, shoes: 'Flip Flops', size: 6},
+        {id: 16, shoes: 'Boots', size: 6},
+        {id: 17, shoes: 'Flats', size: 6},
+        {id: 18, shoes: 'Wedges', size: 6}],
     hats: [
-        {id: 19, hats: 'baseball cap', size: 'S'},
-        {id: 20, hats: 'fedora', size: 'S'},
-        {id: 21, hats: 'cowboy hat', size: 'S'},
-        {id: 22, hats: 'newsboy cap', size: 'S'},
-        {id: 23, hats: 'beanie', size: 'S'},
-        {id: 24, hats: 'bucket hat', size: 'S'}]
+        {id: 19, hats: 'Baseball Cap', size: 'S'},
+        {id: 20, hats: 'Fedora', size: 'S'},
+        {id: 21, hats: 'Cowboy Hat', size: 'S'},
+        {id: 22, hats: 'Newsboy Cap', size: 'S'},
+        {id: 23, hats: 'Beanie', size: 'S'},
+        {id: 24, hats: 'Bucket Hat', size: 'S'}]
     }];
 let cart = [];
 

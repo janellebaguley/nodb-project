@@ -72,8 +72,8 @@ addToCart = (cart) => {
       {/* the ? is called optional chaining, I believe and the following was done so that we didn't end up having an error render, as it wasn't finding clothes at first. */}
       <div>{this.state.clothes[0]?.tops?.map((top, i) => (
         <section key ={i} className = 'box'>
-          <p>{top.tops}</p>
-          <p>{top.size}</p>
+          <h3>{top.tops}</h3>
+          <h5>{top.size}</h5>
           <button onClick = {() => this.addToCart(top)}>addToCart</button>
         </section>
        ))}
@@ -81,8 +81,8 @@ addToCart = (cart) => {
        <div>
        {this.state.clothes[0]?.bottoms?.map((bottom, i) => (
         <section key ={i} className = 'box'>
-          <p>{bottom.bottoms}</p>
-          <p>{bottom.size}</p>
+          <h3>{bottom.bottoms}</h3>
+          <h5>{bottom.size}</h5>
           <button onClick = {() => this.addToCart(bottom)}>addToCart</button>
         </section>
        ))}
@@ -90,8 +90,8 @@ addToCart = (cart) => {
        <div>
         {this.state.clothes[0]?.shoes?.map((shoe, i) => (
         <section key ={i} className = 'box'>
-          <p>{shoe.shoes}</p>
-          <p>{shoe.size}</p>
+          <h3>{shoe.shoes}</h3>
+          <h5>{shoe.size}</h5>
           <button onClick = {() => this.addToCart(shoe)}>addToCart</button>
         </section>
        ))}
@@ -99,8 +99,8 @@ addToCart = (cart) => {
        <div>
        {this.state.clothes[0]?.hats?.map((hat, i) => (
         <section key ={i} className = 'box'>
-          <p>{hat.hats}</p>
-          <p>{hat.size}</p>
+          <h3>{hat.hats}</h3>
+          <h5>{hat.size}</h5>
           <button onClick = {() => this.addToCart(hat)}>addToCart</button>
         </section>
        ))}
