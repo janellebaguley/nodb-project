@@ -105,7 +105,7 @@ addToCart = (cart) => {
         </section>
        ))}
        </div>
-      <h2>Cart</h2>
+      <h1>Cart</h1>
       <Cart
       clothes={this.state.clothes}
       cart={this.state.cart}
