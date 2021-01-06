@@ -14,6 +14,7 @@ class App extends Component {
   this.addToCart = this.addToCart.bind(this);
   this.getClothes = this.getClothes.bind(this);
   this.removeFromCart = this.removeFromCart.bind(this)
+  this.editSize = this.editSize.bind(this)
 } 
 componentDidMount(){
   axios.get('/api/clothes')
@@ -37,10 +38,9 @@ getClothes = () => {
 }
 
 editSize= (id, newSize) => {
-  let body = {size: newSize};
-  axios.put(`/api/clothes/${id}`, body)
+  axios.put(`/api/cart/${id}`, {size: newSize})
   .then(res => {
-    this.setState({clothesInCart: res.data})
+    this.setState({cart: res.data})
   })
   .catch(err => console.log(err))
 };
@@ -110,7 +110,7 @@ addToCart = (cart) => {
       clothes={this.state.clothes}
       cart={this.state.cart}
       addToCart ={this.addToCart}
-      editSizeFn = {this.editSize}
+      editSize = {this.editSize}
       removeFromCart = {this.removeFromCart}/>
     </div>
    );

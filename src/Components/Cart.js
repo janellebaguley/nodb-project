@@ -5,14 +5,15 @@ class Cart extends Component {
     constructor(props){
       super(props)
       this.state ={
-        size: []
+        sizeInput: ''
   }
  }
+ 
 handleInput = (val) => {
     this.setState({sizeInput: val})
 }
 handleEdit = (id) => {
-  this.props.sizeFn(id, this.state.sizeInput)
+  this.props.editSize(id, this.state.sizeInput)
 }
 
 
@@ -24,7 +25,8 @@ handleEdit = (id) => {
         <section key ={i} className = 'box'>
           <p>{top.tops}</p>
           <p>{top.size}</p>
-          <button>EditSize</button>
+          <input value = {this.state.sizeInput} onChange ={e => this.handleInput(e.target.value)}/>
+          <button onClick = {() => this.handleEdit(top.id)}>EditSize</button>
           <button onClick ={() => this.props.removeFromCart(top)}>Delete</button>
         </section>
        ))}
@@ -33,7 +35,8 @@ handleEdit = (id) => {
         <section key ={i} className = 'box'>
            <p>{bottom.bottoms}</p>
           <p>{bottom.size}</p>
-          <button>EditSize</button>
+          <input value = {this.state.sizeInput} onChange ={e => this.handleInput(e.target.value)}/>
+          <button onClick = {() => this.handleEdit(bottom.id)}>EditSize</button>
           <button onClick ={() => this.props.removeFromCart(bottom)}>Delete</button>
         </section>
        ))}
@@ -43,7 +46,8 @@ handleEdit = (id) => {
         <section key ={i} className = 'box'>
           <p>{shoe.shoes}</p>
           <p>{shoe.size}</p>
-          <button>EditSize</button>
+          <input value = {this.state.sizeInput} onChange ={e => this.handleInput(e.target.value)}/>
+          <button onClick = {() => this.handleEdit(shoe.id)}>EditSize</button>
           <button onClick ={() => this.props.removeFromCart(shoe)}>Delete</button>
         </section>
        ))}
@@ -53,15 +57,12 @@ handleEdit = (id) => {
         <section key ={i} className = 'box'>
           <p>{hat.hats}</p>
           <p>{hat.size}</p>
-          <button>EditSize</button>
+          <input value = {this.state.sizeInput} onChange ={e => this.handleInput(e.target.value)}/>
+          <button onClick = {() => this.handleEdit(hat.id)}>EditSize</button>
           <button onClick ={() => this.props.removeFromCart(hat)}>Delete</button>
         </section>
        ))}
        </div>
-        {/* <section>
-          <input value = {this.state.sizeInput} name = 'size' onChange={e => this.handleInput(e.target.value)}/>
-          <button onClick ={this.updateSize}>Update</button>
-        </section> */}
       </div>
     );
   }

@@ -44,12 +44,11 @@ module.exports = {
         res.status(200).send(cart);
     },
     editSize: (req,res) => {
-        const {id} = req.params;
-        let clothesIndex = cart.findIndex(element => element.id === +id);
-        cart [clothesIndex] ={
-            id: cart[clothesIndex].id,
-            size: req.body.size || cart[clothesIndex].size
-        }
+        const {id} = req.params,
+              {size} =req.body;
+        let cartSize = cart.findIndex(element => element.id === +id);
+        // don't forget to add the cartSize variable
+       cart[cartSize].size = size;
         res.status(200).send(cart);
     },
     removeFromCart: (req,res) => {
