@@ -45,17 +45,17 @@ module.exports = {
     },
     editSize: (req,res) => {
         const {id} = req.params;
-        let clothesIndex = clothes.findIndex(element => element.id === +id);
-        clothes [clothesIndex] ={
-            id: clothes[clothesIndex].id,
-            size: req.body.size || clothes[clothesIndex].size
+        let clothesIndex = cart.findIndex(element => element.id === +id);
+        cart [clothesIndex] ={
+            id: cart[clothesIndex].id,
+            size: req.body.size || cart[clothesIndex].size
         }
-        res.status(200).send(clothes);
+        res.status(200).send(cart);
     },
     removeFromCart: (req,res) => {
         const {id} = req.params;
-        let clothesId = clothes.findIndex(element => element.id === +id);
-        clothes.splice(clothesId, 1);
-        res.status(200).send(clothes)
+        let clothesId = cart.findIndex(element => element.id === +id);
+        cart.splice(clothesId, 1);
+        res.status(200).send(cart)
     }
 }
