@@ -21,35 +21,39 @@ handleEdit = (id) => {
     return (
       <div>
         <div>{this.props.cart.filter(element => element.tops).map((top, i) => (
-        <section key ={i}>
+        <section key ={i} className = 'box'>
           <p>{top.tops}</p>
           <p>{top.size}</p>
+          <button>EditSize</button>
           <button onClick ={() => this.props.removeFromCart(top)}>Delete</button>
         </section>
        ))}
        </div>
        <div>{this.props.cart.filter(element => element.bottoms).map((bottom, i) => (
-        <section key ={i}>
+        <section key ={i} className = 'box'>
            <p>{bottom.bottoms}</p>
           <p>{bottom.size}</p>
+          <button>EditSize</button>
           <button onClick ={() => this.props.removeFromCart(bottom)}>Delete</button>
         </section>
        ))}
        </div>
        <div>
         {this.props.cart.filter(element => element.shoes).map((shoe, i) => (
-        <section key ={i}>
+        <section key ={i} className = 'box'>
           <p>{shoe.shoes}</p>
           <p>{shoe.size}</p>
+          <button>EditSize</button>
           <button onClick ={() => this.props.removeFromCart(shoe)}>Delete</button>
         </section>
        ))}
        </div>
        <div>
         {this.props.cart.filter(element => element.hats).map((hat, i) => (
-        <section key ={i}>
+        <section key ={i} className = 'box'>
           <p>{hat.hats}</p>
           <p>{hat.size}</p>
+          <button>EditSize</button>
           <button onClick ={() => this.props.removeFromCart(hat)}>Delete</button>
         </section>
        ))}
